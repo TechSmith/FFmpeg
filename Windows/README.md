@@ -101,7 +101,7 @@ This verifies that the tools are in the path and point to the right location whe
 Launch x64 Native Tools Command Prompt for VS 2017 if it is not open yet from previous session. E.g. Open Command Prompt, then run command below:
 
 ```Shell
-%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvars64.bat" x64
+%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 ```
 
 Open MSYS2 Shell from the command prompt above (use the correct drive and location of your MSYS2 installation). Note that the command shell above will close and it may take a while for the MSYS2 shell to launch.
@@ -224,13 +224,26 @@ make install
 
 Generated libraries can be found in Build folder specified in --prefix option above.
 
-## Copy PDB and Patch dlls
+
+## Automated Compiling for Windows Using Script
+
+Open PowerShell console, make sure FFmpeg\Windows folder is current and run the script below. This will automate the compiling process menioned above:
+```Shell
+.\Build.ps1
+```
+
+# Post-Processing
+
+## Copy PDB files to the detination folder
 
 Make sure FFmpeg\Windows folder is current:
 ```Shell
 CopyPDB.bat
 ```
 
+## Patch the dlls with proper version and copyright info
+
+Download the version patching tool here: https://github.com/pavel-a/ddverpatch/releases , make sure you put it in C drive of your build machine, and this file should look exactly like this: “C:\verpatch\verpatch.exe”. This file is used to patch the version info for FFmpeg dlls built from the steps above. Make sure FFmpeg\Windows folder is current:
 ```Shell
 VersionPatching.bat
 ```
@@ -238,7 +251,7 @@ VersionPatching.bat
 ## Build Nuget Package
 
 ### Prerequisites
-Make sure you have a nuget packaging tool installed (for instance: coapp). Make sure you have run the steps above and all the FFmpeg binaries are in the Build folder mentioned above.
+Make sure you have a nuget packaging tool installed. Make sure you have run the steps above and all the FFmpeg binaries are in the Build folder mentioned above.
 
 ### Build the nuget package
 Open commad line tool, and ..\FFmpeg\Windows is your current location. Use command below to build the nuget package:
