@@ -1,0 +1,81 @@
+configurations
+{
+   Toolset
+   {
+      key : "PlatformToolset";
+      choices: { v141 };
+   };
+}
+
+nuget
+{
+   nuspec
+   {
+      id = TechSmith.FFmpeg;
+      version: 0.0.5;
+      title: FFmpeg Library;
+      authors: { TechSmith Corporation };
+      owners: { TechSmith Corporation };
+      licenseUrl: "http://www.techsmith.com";
+      projectUrl: "https://github.com/TechSmith/FFmpeg";
+      iconUrl: "http://www.techsmith.com/favicon.ico";
+      requireLicenseAcceptance: false;
+      summary: FFmpeg Library;
+      description: @"FFmpeg is a collection of libraries and tools to process multimedia content such as audio, video, subtitles and related metadata. Detailed information can be found here: https://github.com/FFmpeg/FFmpeg FFmpeg Library is built on FFmpeg version 4.2.1.
+      Version history:
+         0.0.5  Enable all mp3 decoders.
+         0.0.4  Rename the id to TechSmith.FFmpeg.
+         0.0.3  Build dlls with only codecs we want to support.
+         0.0.2  Build dlls with version info.
+         0.0.1  Initial release of this nuget package. It is built on FFmpeg 4.2.1 code base."
+      copyright: "Copyright (c) 2019 TechSmith Corporation. All rights reserved.";
+      tags: { native, tsc, FFmpeg, vs2017, cpp, techsmith };
+   };
+
+   dependencies
+   {
+      packages:
+      {
+      };
+   };
+
+   files
+   {
+      #defines
+      {
+         FFMPEG_BUILD = ..\Build\;
+      }
+
+	  nestedInclude: { #destination = ${d_include}; ${FFMPEG_BUILD}Release\include\**\*.h; }
+	  
+      ("Debug,Release") =>
+      {
+         [${0}]
+         {
+            lib:         { ${FFMPEG_BUILD}${0}\bin\*.lib;}
+
+            bin:         { ${FFMPEG_BUILD}${0}\bin\*.dll;
+                           ${FFMPEG_BUILD}${0}\bin\*.pdb; }
+         };
+      };
+   };
+
+   props
+   {
+      // Additional declarations to insert into consuming projects before most of the
+      // project settings. (These may be modified in visual studio by a developer
+      // consuming this package.)
+      // This node is typically not needed for most packages and may be omitted.
+   }
+
+   targets
+   {
+      // Additional declarations to insert into consuming projects after most of the
+      // project settings. (These may NOT be modified in visual studio by a developer
+      // consuming this package.)
+      // This node is often used to set defines that are required that must be set by
+      // the consuming project in order to correctly link to the libraries in this
+      // package.  Such defines may be set either globally or only set under specific
+      // conditions.
+   }
+}
