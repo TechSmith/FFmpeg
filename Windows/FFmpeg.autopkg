@@ -12,7 +12,7 @@ nuget
    nuspec
    {
       id = TechSmith.FFmpeg;
-      version: 0.0.5;
+      version: 0.0.6;
       title: FFmpeg Library;
       authors: { TechSmith Corporation };
       owners: { TechSmith Corporation };
@@ -23,6 +23,7 @@ nuget
       summary: FFmpeg Library;
       description: @"FFmpeg is a collection of libraries and tools to process multimedia content such as audio, video, subtitles and related metadata. Detailed information can be found here: https://github.com/FFmpeg/FFmpeg FFmpeg Library is built on FFmpeg version 4.2.1.
       Version history:
+         0.0.6  Get all batch and shell script files ready for automated building process.
          0.0.5  Enable all mp3 decoders.
          0.0.4  Rename the id to TechSmith.FFmpeg.
          0.0.3  Build dlls with only codecs we want to support.
