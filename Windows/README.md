@@ -157,6 +157,8 @@ cd Output/Release
 --enable-decoder=h264,mp3*,aac,pcm*,mpeg4 \
 --enable-demuxer=h264,mp4,mp3,avi,mov,aac \
 --enable-parser=h264,aac,mpeg4video \
+--enable-d3d11va \
+--enable-hwaccel=h264_d3d11va \
 --prefix=../../Build/Release
 ```
 This takes a couple of minutes and you should see no errors when it is done generating config files and the last line should read:
@@ -203,6 +205,8 @@ cd Output/Debug
 --enable-decoder=h264,mp3*,aac,pcm*,mpeg4 \
 --enable-demuxer=h264,mp4,mp3,avi,mov,aac \
 --enable-parser=h264,aac,mpeg4video \
+--enable-d3d11va \
+--enable-hwaccel=h264_d3d11va \
 --prefix=../../Build/Debug
 ```
 
