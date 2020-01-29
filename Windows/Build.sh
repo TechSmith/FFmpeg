@@ -34,11 +34,8 @@ cd Output/Release
 --disable-protocols \
 --disable-devices \
 --enable-protocol=file \
---enable-decoder=h264,mp3*,aac,pcm*,mpeg4 \
---enable-demuxer=h264,mp4,mp3,avi,mov,aac \
---enable-parser=h264,aac,mpeg4video \
---enable-d3d11va \
---enable-hwaccel=h264_d3d11va \
+--enable-decoder=mp3* \
+--enable-demuxer=mp3 \
 --prefix=../../Build/Release
 
 make -j4
@@ -73,11 +70,8 @@ cd Debug
 --disable-protocols \
 --disable-devices \
 --enable-protocol=file \
---enable-decoder=h264,mp3*,aac,pcm*,mpeg4 \
---enable-demuxer=h264,mp4,mp3,avi,mov,aac \
---enable-parser=h264,aac,mpeg4video \
---enable-d3d11va \
---enable-hwaccel=h264_d3d11va \
+--enable-decoder=mp3* \
+--enable-demuxer=mp3 \
 --prefix=../../Build/Debug
 
 make -j4
