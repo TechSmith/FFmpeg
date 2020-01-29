@@ -12,7 +12,7 @@ nuget
    nuspec
    {
       id = TechSmith.FFmpeg;
-      version: 1.0.1;
+      version: 1.0.2;
       title: FFmpeg Library;
       authors: { FFmpeg Project };
       owners: { FFmpeg Project };
@@ -23,6 +23,7 @@ nuget
       summary: FFmpeg Library;
       description: @"FFmpeg is a collection of libraries and tools to process multimedia content such as audio, video, subtitles and related metadata. Detailed information can be found here: https://github.com/FFmpeg/FFmpeg FFmpeg Library is built on FFmpeg version 4.2.1.
       Version history:
+         1.0.2  Clean up to only support MP3 decoding.
          1.0.1  Enable hardware decoding for H264.
          1.0.0  Initial release of this nuget package. It is built on FFmpeg 4.2.1 code base."
       copyright: "Copyright (c) 2000-2019 FFmpeg Project.";
