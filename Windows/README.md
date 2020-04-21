@@ -45,7 +45,11 @@ pacman -S msys/pkg-config
 
 Close the terminal and we need to do a few tweaks to MSYS2. 
 
-Now open msys2_shell.cmd (which should be found in c:\msys64\ folder) in a text editor, in order for the environment from the Windows side to be inherited on the MSYS2 side, uncomment the following line if it is present: replace rem set MSYS2_PATH_TYPE=inherit with set MSYS2_PATH_TYPE=inherit this will allow the environment variables for Visual Studio to be transferred to the MSYS2 environment and back. Now close the ternimal and reopen it.
+Now open msys2_shell.cmd (which should be found in c:\msys64\ folder) in a text editor, in order for the environment from the Windows side to be inherited on the MSYS2 side: 
+
+replace `rem set MSYS2_PATH_TYPE=inherit` with `set MSYS2_PATH_TYPE=inherit`
+
+This will allow the environment variables for Visual Studio to be transferred to the MSYS2 environment and back. Now close the terminal and reopen it.
 
 Rename link.exe to link_bak.exe in the MSYS2 usr bin folder (E.g. C:\msys64\usr\bin\link.exe) to prevent conflict with MSVC link.exe
 
