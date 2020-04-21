@@ -21,6 +21,8 @@ cd Output/Release
 --enable-cross-compile \
 --target-os=win64 \
 --extra-cflags="-MD" \
+--extra-cflags="-I../../../ThirdParty-Windows-Lame/include/" \
+--extra-ldflags="-LIBPATH:../../../ThirdParty-Windows-Lame/redist/x64/Release/" \
 --disable-debug \
 --disable-network \
 --disable-autodetect \
@@ -39,6 +41,8 @@ cd Output/Release
 --enable-parser=h264,aac,mpeg4video \
 --enable-d3d11va \
 --enable-hwaccel=h264_d3d11va \
+--enable-encoder=libmp3lame \
+--enable-muxer=mp3 \
 --prefix=../../Build/Release
 
 make -j4
@@ -60,6 +64,8 @@ cd Debug
 --target-os=win64 \
 --extra-cflags="-MDd" \
 --extra-ldflags="/NODEFAULTLIB:libcmt" \
+--extra-cflags="-I../../../ThirdParty-Windows-Lame/include/" \
+--extra-ldflags="-LIBPATH:../../../ThirdParty-Windows-Lame/redist/x64/Debug/" \
 --enable-debug \
 --disable-network \
 --disable-autodetect \
@@ -78,6 +84,8 @@ cd Debug
 --enable-parser=h264,aac,mpeg4video \
 --enable-d3d11va \
 --enable-hwaccel=h264_d3d11va \
+--enable-encoder=libmp3lame \
+--enable-muxer=mp3 \
 --prefix=../../Build/Debug
 
 make -j4
