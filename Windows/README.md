@@ -54,9 +54,11 @@ This will allow the environment variables for Visual Studio to be transferred to
 Rename link.exe to link_bak.exe in the MSYS2 usr bin folder (E.g. C:\msys64\usr\bin\link.exe) to prevent conflict with MSVC link.exe
 
 Making MSYS2 inherit the Windows PATH values means making sure C:\msys64\msys2.ini looks like this:
+```
 CHERE_INVOKING=1
 MSYS2_PATH_TYPE=inherit
 MSYSTEM=MSYS
+```
 
 MSYS2 should now be fully installed for Windows use.
 
