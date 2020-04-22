@@ -42,6 +42,7 @@ cd Output/Release
 --enable-d3d11va \
 --enable-hwaccel=h264_d3d11va \
 --enable-encoder=libmp3lame \
+--enable-libmp3lame \
 --enable-muxer=mp3 \
 --prefix=../../Build/Release
 
@@ -85,6 +86,7 @@ cd Debug
 --enable-d3d11va \
 --enable-hwaccel=h264_d3d11va \
 --enable-encoder=libmp3lame \
+--enable-libmp3lame \
 --enable-muxer=mp3 \
 --prefix=../../Build/Debug
 
