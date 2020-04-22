@@ -30,6 +30,6 @@ write-host $FFmpeg_Source_Folder
 write-host Building FFmpeg binaries...
 
 # Start MSYS2 bash environment and build FFmpeg binaries
-Start-Process -FilePath "C:\msys64\msys2_shell.cmd" -ArgumentList "$FFmpeg_Source_Folder\Build.sh" -Wait -NoNewWindow
+Start-Process -FilePath "C:\msys64\msys2_shell.cmd" -ArgumentList "$FFmpeg_Source_Folder\BuildFFmpeg.sh" -Wait -NoNewWindow
 
 write-host Done
