@@ -1,0 +1,3 @@
+[submodule "libmp3lame"]
+	path = libmp3lame
+	url = https://github.com/TechSmith/ThirdParty-Windows-Lame
