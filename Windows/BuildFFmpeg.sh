@@ -21,8 +21,8 @@ cd Output/Release
 --enable-cross-compile \
 --target-os=win64 \
 --extra-cflags="-MD" \
---extra-cflags="-I../../../ThirdParty-Windows-Lame/include/" \
---extra-ldflags="-LIBPATH:../../../ThirdParty-Windows-Lame/redist/x64/Release/" \
+--extra-cflags="-I../../libmp3lame/output/" \
+--extra-ldflags="-LIBPATH:../../libmp3lame/output/x64/Release/" \
 --disable-debug \
 --disable-network \
 --disable-autodetect \
@@ -65,8 +65,8 @@ cd Debug
 --target-os=win64 \
 --extra-cflags="-MDd" \
 --extra-ldflags="/NODEFAULTLIB:libcmt" \
---extra-cflags="-I../../../ThirdParty-Windows-Lame/include/" \
---extra-ldflags="-LIBPATH:../../../ThirdParty-Windows-Lame/redist/x64/Debug/" \
+--extra-cflags="-I../../libmp3lame/output/" \
+--extra-ldflags="-LIBPATH:../../libmp3lame/output/x64/Debug/" \
 --enable-debug \
 --disable-network \
 --disable-autodetect \
