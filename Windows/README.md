@@ -147,6 +147,8 @@ cd Output/Release
 --enable-cross-compile \
 --target-os=win64 \
 --extra-cflags="-MD" \
+--extra-cflags="-I../../../ThirdParty-Windows-Lame/include/" \
+--extra-ldflags="-LIBPATH:../../../ThirdParty-Windows-Lame/redist/x64/Release/" \
 --disable-debug \
 --disable-network \
 --disable-autodetect \
@@ -165,6 +167,9 @@ cd Output/Release
 --enable-parser=h264,aac,mpeg4video \
 --enable-d3d11va \
 --enable-hwaccel=h264_d3d11va \
+--enable-encoder=libmp3lame \
+--enable-libmp3lame \
+--enable-muxer=mp3 \
 --prefix=../../Build/Release
 ```
 This takes a couple of minutes and you should see no errors when it is done generating config files and the last line should read:
@@ -195,6 +200,8 @@ cd Output/Debug
 --target-os=win64 \
 --extra-cflags="-MDd" \
 --extra-ldflags="/NODEFAULTLIB:libcmt" \
+--extra-cflags="-I../../../ThirdParty-Windows-Lame/include/" \
+--extra-ldflags="-LIBPATH:../../../ThirdParty-Windows-Lame/redist/x64/Debug/" \
 --enable-debug \
 --disable-network \
 --disable-autodetect \
@@ -213,6 +220,9 @@ cd Output/Debug
 --enable-parser=h264,aac,mpeg4video \
 --enable-d3d11va \
 --enable-hwaccel=h264_d3d11va \
+--enable-encoder=libmp3lame \
+--enable-libmp3lame \
+--enable-muxer=mp3 \
 --prefix=../../Build/Debug
 ```
 
