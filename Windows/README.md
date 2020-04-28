@@ -1,4 +1,4 @@
-# How to Build FFmepg on Windows using Visual Studio 2017
+# How to Build FFmpeg on Windows using Visual Studio 2017
 Instructions for building FFmpeg as shared libraries (dlls) on Windows using Visual Studio 2017.
 
 ## Prerequisites and First Time Setup Instructions
