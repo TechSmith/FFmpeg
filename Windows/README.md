@@ -102,7 +102,25 @@ You would see something like this:
 
 This verifies that the tools are in the path and point to the right location where MSYS2 and Visual Studio are installed. Now close the terminal for MSYS2.
 
-## Compiling for Windows
+## Build dependent libraries
+
+### Build libmp3lame
+
+libmp3lame is an external library used for FFmpeg to support MP3 encoding. We will need to build it first here. This code is added as a submodule to FFmpeg.
+
+Assume .\FFmpeg\Windows is the current folder, run the powershell script below to build libmp3lame.
+
+```Shell
+BuildLame.ps1
+```
+
+Assume .\FFmpeg\Windows is the current folder, run the powershell script below to put the lame results in output folder for FFmpeg to consume.
+
+```Shell
+CopyLameToOutputFolderForFFmpegToBuild.ps1
+```
+
+## Build FFmpeg for Windows
 
 Launch x64 Native Tools Command Prompt for VS 2017 if it is not open yet from previous session. E.g. Open Command Prompt, then run command below:
 
@@ -147,6 +165,8 @@ cd Output/Release
 --enable-cross-compile \
 --target-os=win64 \
 --extra-cflags="-MD" \
+--extra-cflags="-I../../libmp3lame/output/" \
+--extra-ldflags="-LIBPATH:../../libmp3lame/output/x64/Release/" \
 --disable-debug \
 --disable-network \
 --disable-autodetect \
@@ -160,11 +180,11 @@ cd Output/Release
 --disable-protocols \
 --disable-devices \
 --enable-protocol=file \
---enable-decoder=h264,mp3*,aac,pcm*,mpeg4 \
---enable-demuxer=h264,mp4,mp3,avi,mov,aac \
---enable-parser=h264,aac,mpeg4video \
---enable-d3d11va \
---enable-hwaccel=h264_d3d11va \
+--enable-decoder=mp3*,pcm* \
+--enable-demuxer=mp3 \
+--enable-encoder=libmp3lame \
+--enable-libmp3lame \
+--enable-muxer=mp3 \
 --prefix=../../Build/Release
 ```
 This takes a couple of minutes and you should see no errors when it is done generating config files and the last line should read:
@@ -195,6 +215,8 @@ cd Output/Debug
 --target-os=win64 \
 --extra-cflags="-MDd" \
 --extra-ldflags="/NODEFAULTLIB:libcmt" \
+--extra-cflags="-I../../libmp3lame/output/" \
+--extra-ldflags="-LIBPATH:../../libmp3lame/output/x64/Debug/" \
 --enable-debug \
 --disable-network \
 --disable-autodetect \
@@ -208,11 +230,11 @@ cd Output/Debug
 --disable-protocols \
 --disable-devices \
 --enable-protocol=file \
---enable-decoder=h264,mp3*,aac,pcm*,mpeg4 \
---enable-demuxer=h264,mp4,mp3,avi,mov,aac \
---enable-parser=h264,aac,mpeg4video \
---enable-d3d11va \
---enable-hwaccel=h264_d3d11va \
+--enable-decoder=mp3*,pcm* \
+--enable-demuxer=mp3 \
+--enable-encoder=libmp3lame \
+--enable-libmp3lame \
+--enable-muxer=mp3 \
 --prefix=../../Build/Debug
 ```
 
@@ -235,28 +257,31 @@ make install
 Generated libraries can be found in Build folder specified in --prefix option above.
 
 
-## Automated Compiling for Windows Using Script
+## Automated Compiling FFmpeg for Windows Using Script
 
 Open PowerShell console, make sure FFmpeg\Windows folder is current and run the script below. This will automate the compiling process menioned above:
 ```Shell
-.\Build.ps1
+BuildFFmpeg.ps1
 ```
 
 # Post-Processing
 
-## Copy PDB files to the detination folder
+## Copy FFmpeg PDB files to the detination folder
 
 Make sure FFmpeg\Windows folder is current:
 ```Shell
-CopyPDB.bat
+CopyFFmpegPDBToBuildFolder.bat
 ```
 
-## Patch the dlls with proper version and copyright info
+## Patch the FFmpeg dlls with proper version and copyright info
 
 Download the version patching tool here: https://github.com/pavel-a/ddverpatch/releases , make sure you put it in C drive of your build machine, and this file should look exactly like this: “C:\verpatch\verpatch.exe”. This file is used to patch the version info for FFmpeg dlls built from the steps above. Make sure FFmpeg\Windows folder is current:
 ```Shell
-VersionPatching.bat
+VersionPatchingForFFmpegDlls.bat
 ```
+
+## Copy libmp3lame files to the destination folder
+
 
 ## Build Nuget Package
 
