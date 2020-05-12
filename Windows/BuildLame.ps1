@@ -15,7 +15,7 @@ if (![System.IO.File]::Exists($msbuild))
 }
 
 # from FFmpeg\Windows
-$LameRoot = "../libmp3Lame"
+$LameRoot = "../libmp3lame"
 $lameSln = "$LameRoot/vc_solution/Lame.sln"
 
 # build $lameSln for debug mode
