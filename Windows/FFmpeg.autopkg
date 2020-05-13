@@ -12,7 +12,7 @@ nuget
    nuspec
    {
       id = TechSmith.FFmpeg;
-      version: 1.0.4;
+      version: 1.0.4-pre1;
       title: FFmpeg Library;
       authors: { FFmpeg Project };
       owners: { FFmpeg Project };
