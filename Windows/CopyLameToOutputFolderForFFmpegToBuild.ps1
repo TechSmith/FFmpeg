@@ -1,5 +1,5 @@
 
-$LameRoot = "../libmp3Lame"
+$LameRoot = "../libmp3lame"
 
 # copy header/libs/dlls to the output folder for FFmpeg to consume
 $lameOutputForFFmpeg = "$LameRoot/output"
@@ -18,12 +18,12 @@ copy-item -Path "$LameRoot/include/lame.h" -Destination "$lameOutputForFFmpeg/la
 
 # note we the dll name is unchanged
 Write-Host "Copying dlls..."
-copy-item -Path "$LameRoot/redist/x64/Debug/libmp3lame.dll" -Destination "$lameOutputForFFmpeg/x64/Debug/libmp3Lame.dll" -Force
+copy-item -Path "$LameRoot/redist/x64/Debug/libmp3lame.dll" -Destination "$lameOutputForFFmpeg/x64/Debug/libmp3lame.dll" -Force
 copy-item -Path "$LameRoot/redist/x64/Release/libmp3lame.dll" -Destination "$lameOutputForFFmpeg/x64/Release/libmp3lame.dll" -Force
 
 # note we the pdb name is unchanged
 Write-Host "Copying pdb..."
-copy-item -Path "$LameRoot/redist/x64/Debug/libmp3lame.pdb" -Destination "$lameOutputForFFmpeg/x64/Debug/libmp3Lame.pdb" -Force
+copy-item -Path "$LameRoot/redist/x64/Debug/libmp3lame.pdb" -Destination "$lameOutputForFFmpeg/x64/Debug/libmp3lame.pdb" -Force
 
 # note we the lib name is changed - this is needed for FFmpeg to find and link to the lib correctly
 Write-Host "Copying libs..."
