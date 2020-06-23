@@ -14,7 +14,8 @@ cd ..
    --enable-shared \
    --incdir=Mac/include \
    --shlibdir=Mac/lib \
-   --install-name-dir=@rpath
+   --install-name-dir=@rpath \
+   --disable-securetransport # To avoid AppStore rejection by disabling the use of private API SecIdentityCreate()
 
 make -j8
 make install
