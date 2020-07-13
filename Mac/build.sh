@@ -13,7 +13,11 @@ ARCH="arm64"
 # --disable-debug --target=arm64-apple-macos11 --disable-fvisibility --host=arm-apple-darwin
 
 ./configure \
-   --arch="arm64"
+   --arch="arm" \
+   --cpu=cortex-a9 \
+   --cc=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang \
+   --target-os="darwin" \
+   --enable-cross-compile \
    --enable-libmp3lame \
    --disable-encoders \
    --enable-encoder="h264_videotoolbox,h265_videotoolbox,aac_at,pcm*,libmp3lame" \
