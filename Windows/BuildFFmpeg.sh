@@ -36,11 +36,11 @@ cd Output/Release
 --disable-protocols \
 --disable-devices \
 --enable-protocol=file \
---enable-decoder=mp3*,pcm* \
---enable-demuxer=mp3 \
---enable-encoder=libmp3lame \
+--enable-decoder=mp3*,pcm*,hevc* \
+--enable-demuxer=mp3,hevc \
+--enable-encoder=libmp3lame,hevc* \
 --enable-libmp3lame \
---enable-muxer=mp3 \
+--enable-muxer=mp3,hevc \
 --prefix=../../Build/Release
 
 make -j4
@@ -77,11 +77,11 @@ cd Debug
 --disable-protocols \
 --disable-devices \
 --enable-protocol=file \
---enable-decoder=mp3*,pcm* \
---enable-demuxer=mp3 \
---enable-encoder=libmp3lame \
+--enable-decoder=mp3*,pcm*,hevc* \
+--enable-demuxer=mp3,hevc \
+--enable-encoder=libmp3lame,hevc* \
 --enable-libmp3lame \
---enable-muxer=mp3 \
+--enable-muxer=mp3,hevc \
 --prefix=../../Build/Debug
 
 make -j4
