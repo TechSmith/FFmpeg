@@ -36,14 +36,17 @@ cd Output/Release
 --disable-protocols \
 --disable-devices \
 --enable-protocol=file \
---enable-decoder=mp3*,pcm*,hevc* \
---enable-demuxer=mp3,hevc \
---enable-encoder=libmp3lame,hevc* \
+--enable-decoder=mp3*,pcm*,hevc \
+--enable-demuxer=mp3,hevc,mp4,mov \
+--enable-encoder=libmp3lame \
+--enable-dxva2 \
 --enable-libmp3lame \
---enable-muxer=mp3,hevc \
+--enable-d3d11va \
+--enable-hwaccel=hevc_d3d* \
+--enable-muxer=mp3 \
 --prefix=../../Build/Release
 
-make -j4
+make -j8
 make install
 
 cd ..
@@ -77,14 +80,17 @@ cd Debug
 --disable-protocols \
 --disable-devices \
 --enable-protocol=file \
---enable-decoder=mp3*,pcm*,hevc* \
---enable-demuxer=mp3,hevc \
---enable-encoder=libmp3lame,hevc* \
+--enable-decoder=mp3*,pcm*,hevc \
+--enable-demuxer=mp3,hevc,mp4,mov \
+--enable-encoder=libmp3lame \
 --enable-libmp3lame \
---enable-muxer=mp3,hevc \
+--enable-d3d11va \
+--enable-hwaccel=hevc_d3d* \
+--enable-dxva2 \
+--enable-muxer=mp3 \
 --prefix=../../Build/Debug
 
-make -j4
+make -j8
 make install
 
 exit /b 0
