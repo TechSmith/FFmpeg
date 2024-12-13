@@ -1,3 +1,7 @@
+!!!! DEPRECATED !!!!!
+=============
+Use the prebuilt binaries hosted in https://github.com/TechSmith/ThirdParty-Packages-vcpkg/releases instead
+
 FFmpeg README
 =============
 
